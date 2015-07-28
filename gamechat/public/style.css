@@ -1,0 +1,86 @@
+#messages {
+	list-style: none;
+	#color:darkblue;
+	background-color: rgba(56,56,56,0.5);
+	border-style: solid;
+	border-color: #191919;	
+	border-radius: 10px;
+	border-width: 1px;
+	height:59%;
+	
+	overflow-y: auto;
+	margin-bottom: 10px;
+	padding-top: 2%;
+}
+
+#m {
+	width: 97%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	#position: fixed;
+	padding-left: 1%;
+}
+
+#button {
+	#position: fixed;
+	width: 120px;
+	height:6%;
+}
+
+body {
+	margin-left: 2%;
+	margin-right: 2%;
+	background-color: #484848;
+	color:#d6d6d6;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+#clear {
+	margin-top: 100px;
+}
+
+#block {
+	background-color: rgba(56,56,56,0.5);
+	border-style: solid;
+	border-color: #191919;
+	border-width:1px;
+	border-radius: 10px;
+	padding-top: 2%;
+	padding-left: 3%;
+}
+
+input {
+	background-color: #353535;
+	border-radius: 5px; 
+	#-moz-border-radius: 5px; 
+	#-webkit-border-radius: 5px; 
+	border: 1px solid;
+	border-color: #191919;
+	color:#d6d6d6;
+	
+}
+
+#clear {
+	background-color: #484848;
+	border-radius: 5px; 
+	#-moz-border-radius: 5px; 
+	#-webkit-border-radius: 5px; 
+	border: 2px solid;
+	border-color: #191919;
+	color:#d6d6d6;
+}
+
+#name {
+	margin-left: 1%;
+	padding-left: 1%;
+}
+
+#title {
+	text-align:center;
+	color: #8d8d8d;
+}
+
+li {
+	margin-top:10px;
+	margin-bottom:10px;
+}

@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<link rel="stylesheet" href="style.css">
+</HEAD>
+<BODY>
+<div id="title">
+	<h1>Game Chat</h1>
+</div>
+<div id="block">
+	Name:<input id="name">
+	<form id="merg">
+	<input id="m" autocomplete="off" ></input><br>
+		<input type="submit" id="button" value="Send">
+	</form>
+</div>
+
+<ul id="messages"></ul>
+
+<button id="clear">Clear!</button>
+<script>
+  //password protect
+  
+  $(document).ready(function(){
+	var body = $("body")
+	body.hide();
+	var pword = prompt("enter password");
+	if(pword=="thegame"){
+		body.show();
+	}else{
+		document.write("incorrect password");
+	}
+  });
+  
+  
+  var socket = io();
+  var object = { 
+     name : null,
+     message : null,
+  };
+	$("#merg").submit(function(){
+           object.name = $("#name").val();
+           object.message  = $("#m").val();
+      		socket.emit('chat message', object);
+    		$('#m').val('');
+    		return false;
+	})
+
+  socket.on('chatt message', function(msg){
+    $("#messages").append($("<li>").text(msg));
+  });
+  
+  socket.on('chatt history', function(msg){
+	for(var m in msg){
+		if((m)>msg.length-10){
+			//document.write(msg[m].nam);
+			var longs = (msg[m].nam + " said: " + msg[m].messag);
+			$("#messages").append($("<li>").text(longs));
+		}
+	}
+	//(JSON.stringify(msg));
+  });
+  
+  $("#clear").click(function(){
+	socket.emit("clear");
+  });
+  
+</script>
+</BODY>
+</HTML>
+

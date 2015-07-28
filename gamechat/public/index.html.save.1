@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="../encryption.js"></script>
+<link rel="stylesheet" href="style.css">
+</HEAD>
+<BODY>
+Name:<input id="name">
+<form id="merg">
+	<input id="m"></input><br>
+		<input type="submit" id="button" value="Send">
+	</form>
+
+<ul id="messages"></ul>
+<script>
+  var socket = io();
+  var object = { 
+     name : null,
+     message : null,
+  };
+	$("#merg").submit(function()
+           object.name = $("#name").val();
+           object.message  = $("#m").val();
+		socket.emit('chat message', object);
+    		$('#m').val('');
+    		return false;
+	})
+
+  socket.on('chatt message', function(msg){
+    $("#messages").append($("<li>").text(msg));
+  });
+</script>
+</BODY>
+</HTML>
+
