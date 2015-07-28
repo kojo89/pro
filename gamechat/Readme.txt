@@ -1,1 +1,1 @@
-This is a chat program app running on the MEAN stack 
+This is a chat application running on the MEAN stack 
